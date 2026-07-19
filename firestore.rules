@@ -1,0 +1,17 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper function to check if user is the admin
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email == 'chaseeb.360.86@gmail.com';
+    }
+
+    match /games/{gameId} {
+      // Anyone can read games
+      allow read: if true;
+      // Only admin can write to games
+      allow write: if isAdmin();
+    }
+  }
+}

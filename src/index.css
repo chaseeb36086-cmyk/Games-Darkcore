@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-horror: "Cinzel Decorative", serif;
+  --font-tech: "Rajdhani", sans-serif;
+
+  --color-dark-bg: #030000;
+  --color-dark-surface: #0a0505;
+  --color-blood-red: #c90b0b;
+  --color-neon-red: #ff1a1a;
+  --color-blood-dark: #4a0404;
+
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-gray-300 antialiased overflow-x-hidden;
+  }
+}
+
+.glass-panel {
+  @apply bg-black/40 backdrop-blur-md border border-white/5 shadow-xl;
+}
+
+.glass-card {
+  @apply bg-gradient-to-b from-white/5 to-transparent backdrop-blur-sm border border-white/10 hover:border-neon-red/50 transition-all duration-300;
+}
+
+.neon-text {
+  text-shadow: 0 0 10px rgba(255, 26, 26, 0.5), 0 0 20px rgba(255, 26, 26, 0.3);
+}
+
+.neon-box {
+  box-shadow: 0 0 15px rgba(255, 26, 26, 0.2), inset 0 0 15px rgba(255, 26, 26, 0.1);
+}
+
+.metallic-text {
+  background: linear-gradient(to bottom, #ffffff 0%, #a0a0a0 50%, #404040 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #030000;
+}
+::-webkit-scrollbar-thumb {
+  background: #4a0404;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c90b0b;
+}
